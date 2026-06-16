@@ -4,7 +4,7 @@
 
 @theme {
   --color-primary: #ffff;
-  --color-dark: #111;
+  --color-dark: #000;
 }
 
 /* Custom Font Classes */
@@ -18,4 +18,98 @@
 
 .font-public-sans {
   font-family: "Public Sans", sans-serif;
+}
+
+/* Home hero ambient background */
+.home-hero-blocks {
+  position: absolute;
+  inset: 0;
+  background-size: 32px 32px;
+  mask-image: radial-gradient(
+    ellipse 88% 78% at 50% 48%,
+    black 18%,
+    transparent 74%
+  );
+}
+
+.home-hero-blocks--light {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='31' height='31' fill='rgba(0%2C0%2C0%2C0.012)'/%3E%3Crect width='31' height='31' fill='none' stroke='rgba(0%2C0%2C0%2C0.032)' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+.home-hero-blocks--dark {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='31' height='31' fill='rgba(255%2C255%2C255%2C0.01)'/%3E%3Crect width='31' height='31' fill='none' stroke='rgba(255%2C255%2C255%2C0.028)' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+.home-hero-glow {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  mask-image: linear-gradient(
+    to right,
+    black 0%,
+    transparent 30%,
+    transparent 70%,
+    black 100%
+  );
+}
+
+.home-hero-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(82px);
+}
+
+.home-hero-blob--purple {
+  left: -8%;
+  top: 15%;
+  width: 210px;
+  height: 210px;
+}
+
+.home-hero-blob--yellow {
+  right: -8%;
+  top: 51%;
+  width: 195px;
+  height: 195px;
+}
+
+.home-hero-blob--purple.home-hero-blob--light {
+  background: radial-gradient(
+    circle,
+    rgba(167, 139, 250, 0.62) 0%,
+    rgba(167, 139, 250, 0.16) 52%,
+    transparent 72%
+  );
+  opacity: 0.52;
+}
+
+.home-hero-blob--purple.home-hero-blob--dark {
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.52) 0%,
+    rgba(139, 92, 246, 0.14) 52%,
+    transparent 72%
+  );
+  opacity: 0.56;
+}
+
+.home-hero-blob--yellow.home-hero-blob--light {
+  background: radial-gradient(
+    circle,
+    rgba(252, 211, 77, 0.58) 0%,
+    rgba(252, 211, 77, 0.15) 52%,
+    transparent 72%
+  );
+  opacity: 0.48;
+}
+
+.home-hero-blob--yellow.home-hero-blob--dark {
+  background: radial-gradient(
+    circle,
+    rgba(251, 191, 36, 0.45) 0%,
+    rgba(251, 191, 36, 0.12) 52%,
+    transparent 72%
+  );
+  opacity: 0.52;
 }
