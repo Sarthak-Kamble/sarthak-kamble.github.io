@@ -103,7 +103,7 @@ const HomeSection = () => {
               </p>
             </div>
 
-            <div className="flex items-center justify-center gap-3 w-full">
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-3 w-full">
               <a
                 href={Resume}
                 download="Sarthak_Kamble_Resume.pdf"
@@ -151,7 +151,9 @@ const HomeSection = () => {
                   rel="noopener noreferrer"
                   aria-label={label}
                   className={`hero-glass-circle ${
-                    isDark ? "hero-glass-circle--dark" : "hero-glass-circle--light"
+                    isDark
+                      ? "hero-glass-circle--dark"
+                      : "hero-glass-circle--light"
                   }`}
                 >
                   <Icon className="h-[18px] w-[18px]" />
