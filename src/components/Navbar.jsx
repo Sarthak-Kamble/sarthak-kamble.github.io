@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const dispatch = useDispatch();
   const { theme } = useSelector(selectPortfolioSlice);
+  const isDark = theme === "Dark";
 
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -35,14 +36,14 @@ const Navbar = () => {
       ${isVisible ? "translate-y-0" : "-translate-y-40"}`}
     >
       <div className="px-3">
-        <div className="flex justify-between items-center gap-32 lg:gap-0">
+        <div className="flex justify-between items-center gap-6 lg:gap-8">
           <ul className="flex items-center gap-8">
             {navlist?.map((data) => {
               return (
                 <li className="" key={`${data?.navText}+${data?.id}`}>
                   <Link
                     to={data?.link}
-                    className={`${theme === "Dark" ? `text-white` : `text-gray-500`} transition-colors ease-in-out duration-300`}
+                    className={`${isDark ? `text-white` : `text-gray-500`} transition-colors ease-in-out duration-300`}
                   >
                     {data?.icon}
                   </Link>
@@ -50,6 +51,7 @@ const Navbar = () => {
               );
             })}
           </ul>
+
           <div
             ref={toggleRef}
             className="cursor-pointer"
@@ -58,10 +60,10 @@ const Navbar = () => {
               dispatch(setTheme(newMode));
             }}
           >
-            {theme === "Dark" ? (
-              <AiOutlineSun className="w-5 h-5 dark:text-white " />
+            {isDark ? (
+              <AiOutlineSun className="w-5 h-5 text-white" />
             ) : (
-              <AiOutlineMoon className="w-5 h-5 text-gray-500 " />
+              <AiOutlineMoon className="w-5 h-5 text-gray-500" />
             )}
           </div>
         </div>

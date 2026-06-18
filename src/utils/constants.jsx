@@ -2,13 +2,14 @@ import { LiaHomeSolid } from "react-icons/lia";
 import { BiBriefcaseAlt } from "react-icons/bi";
 import { LuFolderCode } from "react-icons/lu";
 import { BiEnvelope } from "react-icons/bi";
+import { ROUTES } from "./routes";
 
 export const navlist = [
   {
     id: 1,
     navText: "Home",
     icon: <LiaHomeSolid className="w-5 h-5" />,
-    link: "/portfolio-2026",
+    link: ROUTES.home,
   },
   // {
   //   id: 2,
@@ -20,13 +21,13 @@ export const navlist = [
     id: 3,
     navText: "Projects",
     icon: <LuFolderCode className="w-5 h-5" />,
-    link: "/portfolio-2026/projects",
+    link: ROUTES.work,
   },
   {
     id: 4,
     navText: "Contact",
     icon: <BiEnvelope className="w-5 h-5" />,
-    link: "/portfolio-2026/contact",
+    link: ROUTES.contact,
   },
 ];
 
