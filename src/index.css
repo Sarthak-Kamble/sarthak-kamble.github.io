@@ -172,3 +172,91 @@
     0 8px 28px rgba(139, 92, 246, 0.18),
     inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
+
+.cv-shine-btn {
+  position: relative;
+  display: flex;
+  border-radius: 0.375rem;
+  padding: 1px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.cv-shine-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  background: conic-gradient(
+    from -90deg,
+    transparent 0deg 298deg,
+    rgba(76, 29, 149, 0.3) 312deg,
+    rgba(124, 58, 237, 0.65) 324deg,
+    rgba(139, 92, 246, 0.9) 334deg,
+    rgba(167, 139, 250, 1) 342deg,
+    rgba(196, 181, 253, 0.95) 348deg,
+    rgba(221, 214, 254, 1) 352deg,
+    rgba(167, 139, 250, 0.7) 356deg,
+    rgba(124, 58, 237, 0.4) 360deg
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.cv-shine-btn:hover::before {
+  opacity: 1;
+  animation: cv-border-shine 1.6s linear infinite;
+}
+
+.cv-shine-btn:not(:hover)::before {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes cv-border-shine {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.cv-shine-btn--light {
+  background: rgb(212 212 212);
+}
+
+.cv-shine-btn--dark {
+  background: rgb(64 64 64);
+}
+
+.cv-shine-btn__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: calc(0.375rem - 1px);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+.cv-shine-btn__inner--light {
+  background: #ffffff;
+  color: rgb(64 64 64);
+}
+
+.cv-shine-btn--light:hover .cv-shine-btn__inner--light {
+  color: rgb(109 40 217);
+}
+
+.cv-shine-btn__inner--dark {
+  background: #000000;
+  color: rgb(229 229 229);
+}
+
+.cv-shine-btn--dark:hover .cv-shine-btn__inner--dark {
+  color: rgb(196 181 253);
+}

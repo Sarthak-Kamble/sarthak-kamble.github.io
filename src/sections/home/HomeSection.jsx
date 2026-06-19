@@ -33,6 +33,23 @@ const SOCIAL_LINKS = [
   },
 ];
 
+const heroContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.11, delayChildren: 0.08 },
+  },
+};
+
+const heroItemVariants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
 const HomeSection = () => {
   const { theme } = useSelector(selectPortfolioSlice);
   const isDark = theme === "Dark";
@@ -45,9 +62,9 @@ const HomeSection = () => {
     >
       <div className="relative z-10 flex flex-col items-center h-full justify-start w-full">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          initial="hidden"
+          animate="visible"
+          variants={heroContainerVariants}
           className={`relative w-full overflow-hidden h-fit items-center flex select-none flex-col px-6 py-14 lg:py-20 gap-5 lg:gap-7 font-public-sans ${isDark ? "text-white" : "text-[#121212]"}`}
         >
           <div className="pointer-events-none absolute inset-0" aria-hidden>
@@ -70,58 +87,69 @@ const HomeSection = () => {
             </div>
           </div>
 
-          <div className="relative z-10 flex flex-col items-center gap-5 lg:gap-7 w-full">
-            <div
-              className={`rounded-full p-px ${
-                isDark ? "bg-neutral-700" : "bg-neutral-200"
-              }`}
-            >
-              <div className="rounded-full overflow-hidden border-4 border-white">
-                <img
-                  src={ProfilePic1}
-                  alt=""
-                  className="w-28 h-28 object-cover"
-                />
-              </div>
+          <motion.div
+            variants={heroItemVariants}
+            className={`relative z-10 rounded-full p-px ${
+              isDark ? "bg-neutral-700" : "bg-neutral-200"
+            }`}
+          >
+            <div className="rounded-full overflow-hidden border-4 border-white">
+              <img
+                src={ProfilePic1}
+                alt=""
+                className="w-28 h-28 object-cover"
+              />
             </div>
+          </motion.div>
 
-            <div className="flex flex-col gap-5 items-center justify-center max-w-2xl">
-              <div className="flex flex-col gap-2 text-center">
-                <h1 className="text-4xl lg:text-5xl font-semibold tracking-tight">
-                  Hey, I'm Sarthak Kamble
-                </h1>
-                <p className="text-4xl lg:text-5xl font-semibold tracking-tight bg-linear-to-b from-violet-400 to-violet-600 bg-clip-text text-transparent">
-                  Frontend Engineer
-                </p>
-              </div>
-              <p
-                className={`text-lg leading-relaxed text-center ${isDark ? "text-neutral-500" : "text-neutral-500"}`}
-              >
-                I craft intuitive web experiences where design meets
-                functionality — fast, responsive, and delightful interfaces on
-                the web.
-              </p>
-            </div>
+          <motion.h1
+            variants={heroItemVariants}
+            className="relative z-10 text-4xl lg:text-5xl font-semibold tracking-tight text-center"
+          >
+            Hey, I'm Sarthak Kamble
+          </motion.h1>
 
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-3 w-full">
+          <motion.p
+            variants={heroItemVariants}
+            className="relative z-10 text-4xl lg:text-5xl font-semibold tracking-tight text-center bg-linear-to-b from-violet-400 to-violet-600 bg-clip-text text-transparent"
+          >
+            Frontend Engineer
+          </motion.p>
+
+          <motion.p
+            variants={heroItemVariants}
+            className={`relative z-10 max-w-2xl text-lg leading-relaxed text-center ${isDark ? "text-neutral-500" : "text-neutral-500"}`}
+          >
+            I craft intuitive web experiences where design meets functionality
+            — fast, responsive, and delightful interfaces on the web.
+          </motion.p>
+
+          <motion.div
+            variants={heroItemVariants}
+            className="relative z-10 flex w-full max-w-2xl flex-col items-stretch justify-center gap-3 lg:flex-row lg:items-center"
+          >
               <a
                 href={Resume}
                 download="Sarthak_Kamble_Resume.pdf"
-                className={`flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md transition-colors
-                  ${
-                    isDark
-                      ? "border border-neutral-700 text-neutral-200 hover:border-violet-500/60 hover:text-violet-300"
-                      : "border border-neutral-300 text-neutral-700 hover:border-violet-400 hover:text-violet-600"
-                  }
-                `}
+                className={`cv-shine-btn w-full lg:w-auto ${
+                  isDark ? "cv-shine-btn--dark" : "cv-shine-btn--light"
+                }`}
               >
-                <ArrowDownToLine className="w-4 h-4" />
-                <span>Download CV</span>
+                <span
+                  className={`cv-shine-btn__inner w-full justify-center ${
+                    isDark
+                      ? "cv-shine-btn__inner--dark"
+                      : "cv-shine-btn__inner--light"
+                  }`}
+                >
+                  <ArrowDownToLine className="w-4 h-4" />
+                  <span>Download CV</span>
+                </span>
               </a>
 
               <Link
                 to={ROUTES.contact}
-                className={`flex items-center gap-2 rounded-md border px-4 py-2 text-sm transition-colors
+                className={`flex w-full items-center justify-center gap-2 rounded-md border px-4 py-2 text-sm transition-colors lg:w-auto
                   ${
                     isDark
                       ? "border-emerald-500/20 bg-emerald-500/10 backdrop-blur-sm text-neutral-300 hover:border-emerald-500/40 hover:bg-emerald-500/15 hover:text-emerald-300"
@@ -135,15 +163,18 @@ const HomeSection = () => {
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
                 </span>
                 <span
-                  className={`${isDark ? "text-neutral-400" : "text-emerald-500"}`}
+                  className={`text-center ${isDark ? "text-neutral-400" : "text-emerald-500"}`}
                 >
                   Available for new opportunities
                 </span>
               </Link>
-            </div>
+            </motion.div>
 
-            <div className="flex items-center justify-center gap-3 pt-1">
-              {SOCIAL_LINKS.map(({ id, label, href, Icon }) => (
+          <motion.div
+            variants={heroItemVariants}
+            className="relative z-10 flex items-center justify-center gap-3 pt-1"
+          >
+            {SOCIAL_LINKS.map(({ id, label, href, Icon }) => (
                 <a
                   key={id}
                   href={href}
@@ -158,9 +189,8 @@ const HomeSection = () => {
                 >
                   <Icon className="h-[18px] w-[18px]" />
                 </a>
-              ))}
-            </div>
-          </div>
+            ))}
+          </motion.div>
         </motion.div>
 
         <div className="w-full flex items-center justify-center">

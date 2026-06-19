@@ -36,7 +36,7 @@ const Navbar = () => {
       ${isVisible ? "translate-y-0" : "-translate-y-40"}`}
     >
       <div className="px-3">
-        <div className="flex justify-between items-center gap-6 lg:gap-8">
+        <div className="flex justify-between items-center gap-24 lg:gap-8">
           <ul className="flex items-center gap-8">
             {navlist?.map((data) => {
               return (
