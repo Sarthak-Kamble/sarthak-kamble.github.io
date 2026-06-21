@@ -6,6 +6,7 @@ import ProfilePic1 from "../../../assets/profile_pic_1.webp";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import TechStack from "./skills/TechStack";
+import WorkExperience from "./WorkExperience";
 import { ArrowDownToLine } from "lucide-react";
 import Resume from "../../../assets/Sarthak_Kamble_Resume.pdf";
 import { ROUTES } from "../../utils/routes";
@@ -120,78 +121,80 @@ const HomeSection = () => {
             variants={heroItemVariants}
             className={`relative z-10 max-w-2xl text-lg leading-relaxed text-center ${isDark ? "text-neutral-500" : "text-neutral-500"}`}
           >
-            I craft intuitive web experiences where design meets functionality
-            — fast, responsive, and delightful interfaces on the web.
+            I craft intuitive web experiences where design meets functionality —
+            fast, responsive, and delightful interfaces on the web.
           </motion.p>
 
           <motion.div
             variants={heroItemVariants}
             className="relative z-10 flex w-full max-w-2xl flex-col items-stretch justify-center gap-3 lg:flex-row lg:items-center"
           >
-              <a
-                href={Resume}
-                download="Sarthak_Kamble_Resume.pdf"
-                className={`cv-shine-btn w-full lg:w-auto ${
-                  isDark ? "cv-shine-btn--dark" : "cv-shine-btn--light"
+            <a
+              href={Resume}
+              download="Sarthak_Kamble_Resume.pdf"
+              className={`cv-shine-btn w-full lg:w-auto ${
+                isDark ? "cv-shine-btn--dark" : "cv-shine-btn--light"
+              }`}
+            >
+              <span
+                className={`cv-shine-btn__inner w-full justify-center ${
+                  isDark
+                    ? "cv-shine-btn__inner--dark"
+                    : "cv-shine-btn__inner--light"
                 }`}
               >
-                <span
-                  className={`cv-shine-btn__inner w-full justify-center ${
-                    isDark
-                      ? "cv-shine-btn__inner--dark"
-                      : "cv-shine-btn__inner--light"
-                  }`}
-                >
-                  <ArrowDownToLine className="w-4 h-4" />
-                  <span>Download CV</span>
-                </span>
-              </a>
+                <ArrowDownToLine className="w-4 h-4" />
+                <span>Download CV</span>
+              </span>
+            </a>
 
-              <Link
-                to={ROUTES.contact}
-                className={`flex w-full items-center justify-center gap-2 rounded-md border px-4 py-2 text-sm transition-colors lg:w-auto
+            <Link
+              to={ROUTES.contact}
+              className={`flex w-full items-center justify-center gap-2 rounded-md border px-4 py-2 text-sm transition-colors lg:w-auto
                   ${
                     isDark
                       ? "border-emerald-500/20 bg-emerald-500/10 backdrop-blur-sm text-neutral-300 hover:border-emerald-500/40 hover:bg-emerald-500/15 hover:text-emerald-300"
                       : "border-emerald-500/25 bg-emerald-500/5 text-neutral-600 hover:border-emerald-500/40 hover:bg-emerald-500/15 hover:text-emerald-700"
                   }
                 `}
-                aria-label="Open to new opportunities — get in touch"
+              aria-label="Open to new opportunities — get in touch"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              </span>
+              <span
+                className={`text-center ${isDark ? "text-neutral-400" : "text-emerald-500"}`}
               >
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-                </span>
-                <span
-                  className={`text-center ${isDark ? "text-neutral-400" : "text-emerald-500"}`}
-                >
-                  Available for new opportunities
-                </span>
-              </Link>
-            </motion.div>
+                Available for new opportunities
+              </span>
+            </Link>
+          </motion.div>
 
           <motion.div
             variants={heroItemVariants}
             className="relative z-10 flex items-center justify-center gap-3 pt-1"
           >
             {SOCIAL_LINKS.map(({ id, label, href, Icon }) => (
-                <a
-                  key={id}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className={`hero-glass-circle ${
-                    isDark
-                      ? "hero-glass-circle--dark"
-                      : "hero-glass-circle--light"
-                  }`}
-                >
-                  <Icon className="h-[18px] w-[18px]" />
-                </a>
+              <a
+                key={id}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className={`hero-glass-circle ${
+                  isDark
+                    ? "hero-glass-circle--dark"
+                    : "hero-glass-circle--light"
+                }`}
+              >
+                <Icon className="h-[18px] w-[18px]" />
+              </a>
             ))}
           </motion.div>
         </motion.div>
+
+        <WorkExperience />
 
         <div className="w-full flex items-center justify-center">
           <TechStack />

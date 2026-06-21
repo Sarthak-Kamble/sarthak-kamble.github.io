@@ -287,3 +287,75 @@
 .cv-shine-btn--dark:hover .cv-shine-btn__inner--dark {
   color: rgb(196 181 253);
 }
+
+/* Always-on shine border (e.g. current role card) */
+.shine-border-card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  border-radius: 0.75rem;
+  padding: 2px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.shine-border-card::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  background: conic-gradient(
+    from -90deg,
+    transparent 0deg 298deg,
+    rgba(76, 29, 149, 0.3) 312deg,
+    rgba(124, 58, 237, 0.65) 324deg,
+    rgba(139, 92, 246, 0.9) 334deg,
+    rgba(167, 139, 250, 1) 342deg,
+    rgba(196, 181, 253, 0.95) 348deg,
+    rgba(221, 214, 254, 1) 352deg,
+    rgba(167, 139, 250, 0.7) 356deg,
+    rgba(124, 58, 237, 0.4) 360deg
+  );
+  animation: cv-border-shine 3s linear infinite;
+}
+
+.shine-border-card--light {
+  background: rgb(212 212 212);
+}
+
+.shine-border-card--dark {
+  background: rgb(64 64 64);
+}
+
+.shine-border-card__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-radius: calc(0.75rem - 2px);
+}
+
+.shine-border-card__inner--light {
+  background: #ffffff;
+}
+
+.shine-border-card__inner--dark {
+  background: #0a0a0a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shine-border-card::before {
+    animation: none;
+  }
+
+  .shine-border-card--dark {
+    background: rgb(109 40 217 / 0.45);
+  }
+
+  .shine-border-card--light {
+    background: rgb(124 58 237 / 0.35);
+  }
+}
