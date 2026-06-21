@@ -196,9 +196,7 @@ const HomeSection = () => {
 
         <WorkExperience />
 
-        <div className="w-full flex items-center justify-center">
-          <TechStack />
-        </div>
+        <TechStack />
       </div>
     </div>
   );
