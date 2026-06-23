@@ -2,7 +2,36 @@ import { LiaHomeSolid } from "react-icons/lia";
 import { BiBriefcaseAlt } from "react-icons/bi";
 import { LuFolderCode } from "react-icons/lu";
 import { BiEnvelope } from "react-icons/bi";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { ROUTES } from "./routes";
+
+export const socialLinks = [
+  {
+    id: "github",
+    label: "GitHub",
+    href: "https://github.com/Sarthak-Kamble",
+    Icon: FaGithub,
+  },
+  {
+    id: "linkedin",
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/sarthak-kamble/",
+    Icon: FaLinkedin,
+  },
+  {
+    id: "x",
+    label: "X (Twitter)",
+    href: "https://x.com/Sarthak_4120",
+    Icon: FaXTwitter,
+  },
+];
+
+export const footerNavLinks = [
+  { label: "Home", to: ROUTES.home },
+  { label: "Projects", to: ROUTES.projects },
+  { label: "Contact", to: ROUTES.contact },
+];
 
 export const navlist = [
   {
@@ -21,7 +50,7 @@ export const navlist = [
     id: 3,
     navText: "Projects",
     icon: <LuFolderCode className="w-5 h-5" />,
-    link: ROUTES.work,
+    link: ROUTES.projects,
   },
   {
     id: 4,

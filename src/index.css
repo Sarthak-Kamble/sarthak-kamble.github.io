@@ -520,3 +520,47 @@
 .tech-stack-grid--active .tech-stack__card::before {
   opacity: 1;
 }
+
+/* Footer */
+.footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.footer-social-link:hover {
+  transform: translateY(-1px);
+}
+
+.footer-social-link--light {
+  border-color: rgb(229 229 229);
+  background: rgb(255 255 255 / 0.6);
+  color: rgb(115 115 115);
+}
+
+.footer-social-link--light:hover {
+  border-color: rgb(167 139 250 / 0.5);
+  background: rgb(245 243 255 / 0.8);
+  color: rgb(109 40 217);
+}
+
+.footer-social-link--dark {
+  border-color: rgb(38 38 38);
+  background: rgb(23 23 23 / 0.5);
+  color: rgb(163 163 163);
+}
+
+.footer-social-link--dark:hover {
+  border-color: rgb(139 92 246 / 0.35);
+  background: rgb(139 92 246 / 0.08);
+  color: rgb(196 181 253);
+}

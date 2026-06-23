@@ -8,6 +8,6 @@ export const BASENAME =
 /** App routes — paths relative to site root */
 export const ROUTES = {
   home: "/",
-  work: "/work",
+  projects: "/projects",
   contact: "/contact",
 };

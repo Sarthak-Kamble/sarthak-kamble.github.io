@@ -7,32 +7,11 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import TechStack from "./skills/TechStack";
 import WorkExperience from "./WorkExperience";
+import Footer from "../../components/Footer";
 import { ArrowDownToLine } from "lucide-react";
 import Resume from "../../../assets/Sarthak_Kamble_Resume.pdf";
 import { ROUTES } from "../../utils/routes";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-
-const SOCIAL_LINKS = [
-  {
-    id: "github",
-    label: "GitHub",
-    href: "https://github.com/Sarthak-Kamble", // TODO: add your GitHub URL
-    Icon: FaGithub,
-  },
-  {
-    id: "linkedin",
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/sarthak-kamble/", // TODO: add your LinkedIn URL
-    Icon: FaLinkedin,
-  },
-  {
-    id: "x",
-    label: "X (Twitter)",
-    href: "https://x.com/Sarthak_4120", // TODO: add your X URL
-    Icon: FaXTwitter,
-  },
-];
+import { socialLinks } from "../../utils/constants";
 
 const heroContainerVariants = {
   hidden: { opacity: 0 },
@@ -57,7 +36,7 @@ const HomeSection = () => {
 
   return (
     <div
-      className={`relative h-full flex items-center justify-center py-28 lg:border-l lg:border-r w-full lg:w-[60%] mx-auto
+      className={`relative h-full flex items-center justify-center pt-28 lg:border-l lg:border-r w-full lg:w-[60%] mx-auto
         ${isDark ? "border-neutral-800/80" : "border-neutral-100"}
       `}
     >
@@ -175,7 +154,7 @@ const HomeSection = () => {
             variants={heroItemVariants}
             className="relative z-10 flex items-center justify-center gap-3 pt-1"
           >
-            {SOCIAL_LINKS.map(({ id, label, href, Icon }) => (
+            {socialLinks.map(({ id, label, href, Icon }) => (
               <a
                 key={id}
                 href={href}
@@ -197,6 +176,8 @@ const HomeSection = () => {
         <WorkExperience />
 
         <TechStack />
+
+        <Footer />
       </div>
     </div>
   );
