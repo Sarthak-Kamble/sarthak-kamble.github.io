@@ -4,20 +4,22 @@ import { useSelector } from "react-redux";
 import { selectPortfolioSlice } from "../portfolioSlice";
 import { footerNavLinks, socialLinks } from "../utils/constants";
 
-const Footer = ({ className = "" }) => {
+const Footer = ({ className = "", compact = false }) => {
   const { theme } = useSelector(selectPortfolioSlice);
   const isDark = theme === "Dark";
   const year = new Date().getFullYear();
 
   return (
     <footer
-      className={`w-full px-6 pb-10 pt-4 font-public-sans ${className}`}
+      className={`w-full px-6 font-public-sans ${
+        compact ? "pb-4 pt-2" : "pb-10 pt-4"
+      } ${className}`}
     >
       <div className="mx-auto w-full max-w-4xl">
         <div
-          className={`flex flex-col items-center gap-6 border-t pt-8 ${
-            isDark ? "border-neutral-800" : "border-neutral-200"
-          }`}
+          className={`flex flex-col items-center border-t ${
+            compact ? "gap-3 pt-4" : "gap-6 pt-8"
+          } ${isDark ? "border-neutral-800" : "border-neutral-200"}`}
         >
           <nav
             className="flex flex-wrap items-center justify-center gap-x-1 gap-y-1"
