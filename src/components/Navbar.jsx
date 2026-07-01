@@ -40,13 +40,31 @@ const Navbar = () => {
           <ul className="flex items-center gap-8">
             {navlist?.map((data) => {
               return (
-                <li className="" key={`${data?.navText}+${data?.id}`}>
+                <li
+                  className="relative group"
+                  key={`${data?.navText}+${data?.id}`}
+                >
                   <Link
                     to={data?.link}
-                    className={`${isDark ? `text-white` : `text-gray-500`} transition-colors ease-in-out duration-300`}
+                    className={`transition-colors ease-in-out duration-300 ${
+                      isDark
+                        ? "text-white hover:text-violet-300"
+                        : "text-gray-500 hover:text-violet-600"
+                    }`}
+                    aria-label={data?.navText}
                   >
                     {data?.icon}
                   </Link>
+                  <span
+                    className={`nav-tooltip pointer-events-none absolute left-1/2 top-full z-50 mt-2 hidden -translate-x-1/2 whitespace-nowrap rounded-md border px-2.5 py-1 text-[11px] font-medium tracking-wide opacity-0 transition-all duration-200 group-hover:opacity-100 lg:block ${
+                      isDark
+                        ? "border-neutral-700/80 bg-neutral-900/95 text-neutral-200 shadow-lg shadow-black/20"
+                        : "border-neutral-200 bg-white/95 text-neutral-600 shadow-md shadow-neutral-200/60"
+                    }`}
+                    role="tooltip"
+                  >
+                    {data?.navText}
+                  </span>
                 </li>
               );
             })}

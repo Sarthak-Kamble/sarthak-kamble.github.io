@@ -12,6 +12,7 @@ import {
 import HomeSection from "../sections/home/HomeSection";
 import Projects from "../sections/projects/Projects";
 import Contact from "../sections/contact/Contact";
+import About from "../sections/about/About";
 import { BASENAME, ROUTES } from "../utils/routes";
 
 function AppLayout() {
@@ -38,6 +39,7 @@ const router = createBrowserRouter(
       children: [
         { index: true, element: <HomeSection /> },
         { path: "projects", element: <Projects /> },
+        { path: "about", element: <About /> },
         { path: "contact", element: <Contact /> },
         {
           path: "work",

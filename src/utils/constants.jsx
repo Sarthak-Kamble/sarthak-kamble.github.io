@@ -1,6 +1,6 @@
 import { LiaHomeSolid } from "react-icons/lia";
 import { BiBriefcaseAlt } from "react-icons/bi";
-import { LuFolderCode } from "react-icons/lu";
+import { LuFolderCode, LuUserRound } from "react-icons/lu";
 import { BiEnvelope } from "react-icons/bi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -30,6 +30,7 @@ export const socialLinks = [
 export const footerNavLinks = [
   { label: "Home", to: ROUTES.home },
   { label: "Projects", to: ROUTES.projects },
+  { label: "About", to: ROUTES.about },
   { label: "Contact", to: ROUTES.contact },
 ];
 
@@ -54,6 +55,12 @@ export const navlist = [
   },
   {
     id: 4,
+    navText: "About",
+    icon: <LuUserRound className="w-5 h-5" />,
+    link: ROUTES.about,
+  },
+  {
+    id: 5,
     navText: "Contact",
     icon: <BiEnvelope className="w-5 h-5" />,
     link: ROUTES.contact,
